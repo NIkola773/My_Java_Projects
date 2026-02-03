@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Shop - Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        header {
+            background-color: #1976d2;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        main {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        h1, h2 {
+            color: #1976d2;
+        }
+        section {
+            margin-bottom: 20px;
+        }
+        ul {
+            line-height: 1.6;
+        }
+        footer {
+            text-align: center;
+            padding: 15px;
+            color: #777;
+            font-size: 0.9em;
+        }
+        code {
+            background-color: #eee;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Online Shop Application</h1>
+        <p>A simple Spring Boot + H2 application demonstrating REST APIs, JPA, and security configuration</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>Overview</h2>
+            <p>This project demonstrates a small online shop backend using Spring Boot, with the following features:</p>
+            <ul>
+                <li>CRUD operations for <code>Products</code> entity via REST APIs</li>
+                <li>JPA/Hibernate integration with <code>H2 in-memory database</code></li>
+                <li>Spring Security configuration for role-based access control</li>
+                <li>Open access routes for public endpoints</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Application Structure</h2>
+            <ul>
+                <li><strong>Security.java</strong>: Configures Spring Security. Admin routes like <code>/adminPanel</code> and <code>/allUsers</code> are restricted, while all other routes are publicly accessible.</li>
+                <li><strong>Products.java</strong>: Entity class representing a product with <code>id</code>, <code>product_name</code>, and <code>price</code>.</li>
+                <li><strong>JPArepo.java</strong>: Spring Data JPA repository for <code>Products</code> entity.</li>
+                <li><strong>AppService.java</strong>: Service layer handling business logic for products. Includes methods to retrieve all products, filter by price, and add/delete products.</li>
+                <li><strong>Controller.java</strong>: REST controller exposing endpoints like <code>/products</code> and <code>/addProducts</code> for client interaction.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Security & Users</h2>
+            <p>The application defines two in-memory users:</p>
+            <ul>
+                <li><code>user / user1</code> with role <code>USER</code></li>
+                <li><code>admin / admin123</code> with roles <code>ADMIN, USER</code></li>
+            </ul>
+            <p>Routes restricted to <code>ADMIN</code> role include:</p>
+            <ul>
+                <li><code>/adminPanel</code></li>
+                <li><code>/allUsers</code></li>
+            </ul>
+            <p>All other routes, including product listing, are publicly accessible.</p>
+        </section>
+
+        <section>
+            <h2>Available Endpoints</h2>
+            <ul>
+                <li><code>GET /products</code> - Returns a list of all products</li>
+                <li><code>POST /addProducts</code> - Adds a new product</li>
+                <li>Additional endpoints for filtering by price or IDs will be added later</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Technologies Used</h2>
+            <ul>
+                <li>Spring Boot 3.x</li>
+                <li>Spring Security 7</li>
+                <li>Spring Data JPA + H2 database</li>
+                <li>REST APIs using Spring Web</li>
+                <li>Thymeleaf for frontend templating (future expansion)</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2026 Nikola Korac. All rights reserved.
+    </footer>
+</body>
+</html>
